@@ -18,7 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: url('/images/wallpaper.png')
+  background: url('/images/wallpaper.png');
 }
 
 .fade-in {
