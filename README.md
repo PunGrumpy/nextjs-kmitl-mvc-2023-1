@@ -80,21 +80,21 @@ OOOOOOOOOOXOOOOOOXOXO
     - `ApiResponse` (interface) - API Response
 
 ```bash
-.
-├── app
-│   ├── api
+🏠
+├── 📱 app
+│   ├── 📡 api
 │   │   └── route.ts
-│   ├── monix
+│   ├── 📱 monix
 │   │   └── react-swagger.tsx
 │   └── page.tsx
-├── lib
+├── 📚 lib
 │   ├── http.ts
 │   ├── prisma.ts
 │   ├── swagger.ts
 │   └── util.ts
-├── model
+├── 📝 model
 │   └── types.ts
-├── prisma
+├── 📦 prisma
 │   ├── migrations
 │   │   └── ...
 │   ├── schema.prisma
