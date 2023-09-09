@@ -15,4 +15,4 @@ This project is a web application that allows users to create, read on **Monix**
   - Caluculate Percentile
   - Check Time Data and Integer Data Validation
 - [prisma](prisma) - Database ORM (Prisma)
-  - [prisma/schema.prisma](prisma/schema.prisma) - Database schema
+  - [prisma/schema.prisma](prisma/schema.prisma) - Database schema (Using PostgreSQL)
