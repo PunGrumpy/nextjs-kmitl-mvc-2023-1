@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+ORANGE='\033[0;33m'
+RESET='\033[0m'
+
+echo "${ORANGE}Running pre-commit hook...${RESET}"
+echo "${ORANGE}
+██   ██ ███    ███ ██ ████████ ██          ███    ███ ██    ██  ██████ 
+██  ██  ████  ████ ██    ██    ██          ████  ████ ██    ██ ██      
+█████   ██ ████ ██ ██    ██    ██          ██ ████ ██ ██    ██ ██      
+██  ██  ██  ██  ██ ██    ██    ██          ██  ██  ██  ██  ██  ██      
+██   ██ ██      ██ ██    ██    ███████     ██      ██   ████    ██████ 
+${RESET}"
+
+echo "${ORANGE}Running lint...${RESET}"
+pnpm lint
+
+echo "${ORANGE}Running format...${RESET}"
+pnpm format
