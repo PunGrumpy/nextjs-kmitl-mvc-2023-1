@@ -54,8 +54,7 @@ OOOOOOOOOOXOOOOOOXOXO
   - `page.tsx` - Web application page
   - [api](app/api) - API for the web application (Monix)
     - `route.ts` - API routes
-      - `GET` (function) - Get Time Data and Average Data
-      - `POST` (function) - Create Time Data and Integer Data
+      - `POST` (function) - Create Time Data and Integer Data and Calculate Percentile
   - [monix](app/monix) - Web application for **Swagger UI** (Monix)
     - `react-swagger.tsx` - Swagger UI
 - [lib](lib) - Library (Monix)
