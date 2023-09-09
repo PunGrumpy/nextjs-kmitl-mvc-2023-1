@@ -59,10 +59,11 @@ OOOOOOOOOOXOOOOOOXOXO
     - `react-swagger.tsx` - Swagger UI
 - [lib](lib) - Library (Monix)
   - `util.ts` - Utility
+    - `MakeSerializable` (function) - Make Serializable
     - `CalculatePercentile` (function) - Calculate Percentile
+    - `CalculateAverage` (function) - Calculate Average
     - `IsValidTimeFormat` (function) - Check Time Format Validation
     - `IsValidIntegerValue` (function) - Check Integer Value Validation
-    - `MakeSerializable` (function) - Make Serializable
   - `http.ts` - HTTP
     - `ResponseJSON` (function) - Response JSON
   - `prisma.ts` - Database ORM (Prisma)
