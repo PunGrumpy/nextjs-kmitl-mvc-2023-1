@@ -58,29 +58,33 @@ OOOOOOOOOOXOOOOOOXOXO
 │   │   └── 📡 monix
 │   │       └── 📄 route.ts
 │   ├── 📄 page.tsx
-│   ├── 📄 globals.css
+│   ├── 🖌️ globals.css
 │   ├── 📄 layout.tsx
-│   └── 📄 favicon.ico
+│   └── 🖼️ favicon.ico
 ├── 📦 components
-│   └── 📄 swagger.component.tsx
+│   └── 🖌️ swagger.component.tsx
 ├── 📚 lib
-│   ├── http.ts
-│   ├── prisma.ts
-│   ├── swagger.ts
-│   └── util.ts
+│   ├── ⚙️ util.ts
+│   ├── ⚙️ http.ts
+│   ├── ⚙️ prisma.ts
+│   └── ⚙️ swagger.ts
 ├── 📝 model
-│   └── types.ts
+│   └── 🌀 types.ts
 ├── 📦 prisma
-│   ├── migrations
+│   ├── 📂 migrations
 │   │   └── ...
-│   ├── schema.prisma
-│   └── seed.ts
-├── .gitignore
-├── prettire.config.js
-├── README.md
-├── package.json
-├── tsconfig.json
-└── pnpm-lock.yaml
+│   ├── 📃 schema.prisma
+│   └── 🌱 seed.ts
+├── ⚙️ .gitignore
+├── ⚙️ prettire.config.js
+├── 📖 README.md
+├── 📦 package.json
+├── ⚙️ tsconfig.json
+├── 📃 next-swagger-doc.json
+├── ⚙️ next.config.js
+├── 🖌️ tailwind.config.js
+├── ⚖️ LICENSE
+└── ⚙️ pnpm-lock.yaml
 ```
 
 - [app](app) - Web application (Monix)
