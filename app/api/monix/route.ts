@@ -61,10 +61,13 @@ export async function POST(request: Request) {
 
   return ResponseJSON(
     {
-      average,
-      'Percentile 50th': percentile50,
-      'Percentile 90th': percentile90,
-      'Percentile 95th': percentile95
+      result: {
+        average,
+        'Percentile 50th': percentile50,
+        'Percentile 90th': percentile90,
+        'Percentile 95th': percentile95
+      },
+      message: 'Successfully added new time and integer value'
     },
     201
   )
