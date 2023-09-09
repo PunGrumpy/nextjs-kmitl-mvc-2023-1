@@ -9,14 +9,14 @@ This project is a web application that allows users to create, read on **Monix**
 
 ## `📚` Stack
 
-- [app/api](app/api) - API for the web application (Monix)
-  - `route.ts` - API routes
-    - `GET` (function) - Get Time Data and Average Data
-    - `POST` (function) - Create Time Data and Integer Data
-- [app/monix](app/monix) - Web application for **Swagger UI** (Monix)
-  - `react-swagger.tsx` - Swagger UI
 - [app](app) - Web application (Monix)
   - `page.tsx` - Web application page
+  - [api](app/api) - API for the web application (Monix)
+    - `route.ts` - API routes
+      - `GET` (function) - Get Time Data and Average Data
+      - `POST` (function) - Create Time Data and Integer Data
+  - [monix](app/monix) - Web application for **Swagger UI** (Monix)
+    - `react-swagger.tsx` - Swagger UI
 - [lib](lib) - Library (Monix)
   - [util.ts](lib/util.ts) - Utility
     - `CalculatePercentile` (function) - Calculate Percentile
@@ -30,6 +30,8 @@ This project is a web application that allows users to create, read on **Monix**
   - [swagger.ts](lib/swagger.ts) - Swagger Docs
     - `getApiDocs` (function) - Get API Docs
 - [prisma](prisma) - Database ORM (Prisma)
-  - [prisma/schema.prisma](prisma/schema.prisma) - Database schema (Using PostgreSQL)
+  - [schema.prisma](prisma/schema.prisma) - Database schema (Using PostgreSQL)
+  - [migration](prisma/migration) - Database migration (Prisma)
+  - [seed](prisma/seed.ts) - Database seed (Prisma)
 - [model](model) - API model (Monix)
   - `ApiResponse` (interface) - API Response
