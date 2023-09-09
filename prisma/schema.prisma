@@ -6,3 +6,9 @@ datasource db {
     provider = "postgresql"
     url      = env("DATABASE_URL")
 }
+
+model TimeData {
+    id           Int      @id @default(autoincrement())
+    time         DateTime
+    integerValue Int
+}
