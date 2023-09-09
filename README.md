@@ -71,7 +71,7 @@ OOOOOOOOOOXOOOOOOXOXO
     - `getApiDocs` (function) - Get API Docs
 - [prisma](prisma) - Database ORM (Prisma)
   - `schema.prisma` - Database schema (Using PostgreSQL)
-  - [migration](prisma/migrations) - Database migration (Prisma)
+  - [migrations](prisma/migrations) - Database migration (Prisma)
     - `20230909063745_kmitl_mvc` (migration) - Database migration
   - `seed.ts` - Database seed (Prisma)
 - [model](model) - API model (Monix)
