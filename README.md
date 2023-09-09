@@ -50,44 +50,19 @@ OOOOOOOOOOXOOOOOOXOXO
 
 ## `🏢` Project Structure
 
-- [app](app) - Web application (Monix)
-  - `page.tsx` - Web application page
-  - [api](app/api) - API for the web application (Monix)
-    - `route.ts` - API routes
-      - `GET` (function) - Get Calculate Percentile and Average
-      - `POST` (function) - Create Time Data and Integer Data
-  - [monix](app/monix) - Web application for **Swagger UI** (Monix)
-    - `react-swagger.tsx` - Swagger UI
-- [lib](lib) - Library (Monix)
-  - `util.ts` - Utility
-    - `MakeSerializable` (function) - Make Serializable
-    - `CalculatePercentile` (function) - Calculate Percentile
-    - `CalculateAverage` (function) - Calculate Average
-    - `IsValidTimeFormat` (function) - Check Time Format Validation
-    - `IsValidIntegerValue` (function) - Check Integer Value Validation
-  - `http.ts` - HTTP
-    - `ResponseJSON` (function) - Response JSON
-  - `prisma.ts` - Database ORM (Prisma)
-    - `prisma` (object) - Prisma ORM
-  - `swagger.ts` - Swagger Docs
-    - `getApiDocs` (function) - Get API Docs
-- [prisma](prisma) - Database ORM (Prisma)
-  - `schema.prisma` - Database schema (Using PostgreSQL)
-  - [migrations](prisma/migrations) - Database migration (Prisma)
-    - `20230909063745_kmitl_mvc` (migration) - Database migration
-  - `seed.ts` - Database seed (Prisma)
-- [model](model) - API model (Monix)
-  - `types.ts` - API model
-    - `ApiResponse` (interface) - API Response
-
 ```bash
 🏠
 ├── 📱 app
 │   ├── 📡 api
-│   │   └── route.ts
-│   ├── 📱 monix
-│   │   └── react-swagger.tsx
-│   └── page.tsx
+│   │   ├── 📄 page.tsx
+│   │   └── 📡 monix
+│   │       └── 📄 route.ts
+│   ├── 📄 page.tsx
+│   ├── 📄 globals.css
+│   ├── 📄 layout.tsx
+│   └── 📄 favicon.ico
+├── 📦 components
+│   └── 📄 swagger.component.tsx
 ├── 📚 lib
 │   ├── http.ts
 │   ├── prisma.ts
@@ -107,6 +82,39 @@ OOOOOOOOOOXOOOOOOXOXO
 ├── tsconfig.json
 └── pnpm-lock.yaml
 ```
+
+- [app](app) - Web application (Monix)
+  - `page.tsx` - Web application page
+  - `globals.css` - Global CSS
+  - `layout.tsx` - Web application layout
+  - `favicon.ico` - Web application favicon
+  - [api](app/api) - API for the web application (Monix)
+    - `route.ts` - API routes
+      - `GET` (function) - Get Calculate Percentile and Average
+      - `POST` (function) - Create Time Data and Integer Data
+    - `page.tsx` - API page (Swagger UI)
+- [components](component) - Web application components (Monix)
+  - `swagger.component.tsx` - Swagger UI component
+- [lib](lib) - Library (Monix)
+  - `util.ts` - Utility
+    - `MakeSerializable` (function) - Make Serializable
+    - `CalculatePercentile` (function) - Calculate Percentile
+    - `CalculateAverage` (function) - Calculate Average
+    - `Fetcher` (Function) - Fetcher (HTTP)
+  - `http.ts` - HTTP
+    - `ResponseJSON` (function) - Response JSON
+  - `prisma.ts` - Database ORM (Prisma)
+    - `prisma` (object) - Prisma ORM
+  - `swagger.ts` - Swagger Docs
+    - `getApiDocs` (function) - Get API Docs
+- [prisma](prisma) - Database ORM (Prisma)
+  - `schema.prisma` - Database schema (Using PostgreSQL)
+  - [migrations](prisma/migrations) - Database migration (Prisma)
+    - `20230909063745_kmitl_mvc` (migration) - Database migration
+  - `seed.ts` - Database seed (Prisma)
+- [model](model) - API model (Monix)
+  - `types.ts` - API model
+    - `ApiResponse` (interface) - API Response
 
 ## `📦` Installation
 

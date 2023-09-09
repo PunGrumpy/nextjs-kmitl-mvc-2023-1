@@ -20,12 +20,7 @@ export function CalculateAverage(values: number[]): number {
   return values.reduce((a, b) => a + b, 0) / values.length
 }
 
-export function IsValidTimeFormat(time: string): boolean {
-  const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/
-  return timeRegex.test(time)
-}
-
-export function IsValidIntegerValue(integerValue: string): boolean {
-  const integerValueRegex = /^[1-9]\d*$/
-  return integerValueRegex.test(integerValue)
+export async function Fetcher(url: string) {
+  const res = await fetch(url)
+  return res.json()
 }

@@ -37,12 +37,7 @@ export async function GET() {
   const percentile95 = CalculatePercentile(integerValues, 95)
 
   return ResponseJSON(
-    {
-      average,
-      percentile50,
-      percentile90,
-      percentile95
-    },
+    { average, percentile50, percentile90, percentile95 },
     200
   )
 }
@@ -84,10 +79,5 @@ export async function POST(request: Request) {
     }
   })
 
-  return ResponseJSON(
-    {
-      timeData
-    },
-    201
-  )
+  return ResponseJSON({ timeData }, 201)
 }
