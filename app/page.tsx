@@ -107,7 +107,7 @@ export default function Page() {
         {data ? (
           <div className="mt-4 fade-in">
             <h2 className="text-lg font-semibold text-white">
-              Data from the API
+              Calculate Percentile in Last 1 Hour
             </h2>
             <div className="bg-gray-900 bg-opacity-60 p-4 rounded">
               <p className="text-white">Average: {data.average}</p>
