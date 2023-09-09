@@ -19,8 +19,3 @@ export function CalculatePercentile(
 export function CalculateAverage(values: number[]): number {
   return values.reduce((a, b) => a + b, 0) / values.length
 }
-
-export async function Fetcher(url: string) {
-  const res = await fetch(url)
-  return res.json()
-}

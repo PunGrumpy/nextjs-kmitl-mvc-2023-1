@@ -1,11 +1,11 @@
 'use client'
 
-import { Fetcher } from '@/lib/util'
 import { ApiResponse } from '@/model/types'
 import toast, { Toaster } from 'react-hot-toast'
 import React, { useEffect, useState } from 'react'
 
 export default function Page() {
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState<ApiResponse | null>(null)
   const [formData, setFormData] = useState({ time: '', integerValue: '' })
 
@@ -16,6 +16,7 @@ export default function Page() {
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault()
     try {
+      setLoading(true)
       toast.loading('Loading...')
 
       const numberIntegerValue = Number(formData.integerValue)
@@ -32,8 +33,10 @@ export default function Page() {
         })
       })
       if (response.status === 201) {
-        toast.success('Data posted successfully!')
         await new Promise(resolve => setTimeout(resolve, 2000))
+        toast.dismiss()
+        toast.success('Data posted successfully!')
+        await new Promise(resolve => setTimeout(resolve, 1000))
         setFormData({ time: '', integerValue: '' })
       } else {
         toast.error('Failed to post data')
@@ -42,20 +45,33 @@ export default function Page() {
       toast.error(error.toString())
     } finally {
       toast.dismiss()
+      setLoading(false)
       handleGet()
     }
   }
 
   async function handleGet() {
     try {
+      setLoading(true)
       toast.loading('Loading...')
-      const response = await Fetcher('/api/monix')
+
+      const response = await fetch('/api/monix')
+      const responseJson = await response.json()
       await new Promise(resolve => setTimeout(resolve, 2000))
-      setData(response)
+      toast.dismiss()
+      if (response.status === 200) {
+        toast.success('Data fetched successfully!')
+      } else {
+        toast.error('Failed to fetch data')
+      }
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      toast.dismiss()
+      setData(responseJson)
     } catch (error: any) {
       toast.error(error.toString())
     } finally {
       toast.dismiss()
+      setLoading(false)
     }
   }
 
@@ -80,6 +96,7 @@ export default function Page() {
                 }
                 className="w-full rounded py-2 px-3 bg-gray-800 bg-opacity-60 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
                 required
+                disabled={loading}
               />
             </label>
           </div>
@@ -93,27 +110,45 @@ export default function Page() {
               }
               className="w-full rounded py-2 px-3 bg-gray-800 bg-opacity-60 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
               required
+              disabled={loading}
             />
           </div>
           <div>
             <button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+              className={`w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ${
+                loading
+                  ? 'opacity-50 cursor-not-allowed'
+                  : 'hover:bg-indigo-800'
+              }`}
             >
               Submit
             </button>
           </div>
         </form>
-        {data ? (
+        {data &&
+        data.average &&
+        data.percentile50 &&
+        data.percentile90 &&
+        data.percentile95 ? (
           <div className="mt-4 fade-in">
-            <h2 className="text-lg font-semibold text-white">
+            <h2 className="mt-8 text-lg font-semibold text-white">
               Calculate Percentile in Last 1 Hour
             </h2>
+            <h3 className="mt-4 text-sm font-semibold text-white">
+              Display on IoT Device
+            </h3>
             <div className="bg-gray-900 bg-opacity-60 p-4 rounded">
               <p className="text-white">Average: {data.average}</p>
               <p className="text-white">Percentile 50th: {data.percentile50}</p>
               <p className="text-white">Percentile 90th: {data.percentile90}</p>
               <p className="text-white">Percentile 95th: {data.percentile95}</p>
+            </div>
+            <h3 className="mt-4 text-sm font-semibold text-white">
+              Display on Smart Phone
+            </h3>
+            <div className="bg-gray-900 bg-opacity-60 p-4 rounded">
+              <p className="text-white">{`I don't know what to display here`}</p>
             </div>
           </div>
         ) : (
