@@ -1,6 +1,16 @@
 <div align="center">
     <h1><code>🎓</code> KMITL MVC</h1>
     <p>Exit Examination for Computer Science</p>
+    <img src="./.github/images/screenshot.png" alt="Screenshot" width="100%">
+    <p>
+        <a href="./.github/documents/Exit Exam MVC- 2023 Saturday afternoon.pdf"><img src="https://img.shields.io/badge/Exit Exam MVC-000000?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="Exit Exam MVC- 2023 Saturday afternoon"></a>
+        <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"></a>
+        <a href="https://www.prisma.io/"><img src="https://img.shields.io/badge/Prisma-000000?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma"></a>
+        <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
+        <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind CSS-000000?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"></a>
+        <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"></a>
+        <a href="https://swagger.io/tools/swagger-ui/"><img src="https://img.shields.io/badge/Swagger UI-000000?style=for-the-badge&logo=swagger&logoColor=white" alt="Swagger UI"></a>
+    </p>
 </div>
 
 ## `📝` Description
