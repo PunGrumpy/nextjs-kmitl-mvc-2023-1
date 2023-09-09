@@ -1,0 +1,16 @@
+.coloring-text {
+  color: #f06;
+  animation: color-change-animation 6s linear infinite alternate;
+}
+
+@keyframes color-change-animation {
+  0% {
+    color: #f06;
+  }
+  50% {
+    color: #ff6;
+  }
+  100% {
+    color: #6f6;
+  }
+}
