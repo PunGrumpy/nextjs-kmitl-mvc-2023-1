@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma'
 import { ResponseJSON } from '@/lib/http'
-import { CalculatePercentile } from '@/lib/util'
+import { TimeData } from '@prisma/client'
+import { CalculateAverage, CalculatePercentile } from '@/lib/util'
 
 /**
  * @swagger
@@ -26,59 +27,45 @@ import { CalculatePercentile } from '@/lib/util'
  *        description: Internal server error
  */
 export async function POST(request: Request) {
-  const { time, integerValue }: { time: Date; integerValue: number } =
-    await request.json()
+  const { time, integerValue }: TimeData = await request.json()
 
   if (!time || !integerValue) {
     return ResponseJSON({ error: 'Please provide time and integerValue' }, 400)
   }
 
-  const timeData = await prisma.timeData.create({
+  await prisma.timeData.create({
     data: {
-      time: new Date(time),
+      time,
       integerValue
     }
   })
 
-  const oneHourAgo = new Date(Date.now())
-  oneHourAgo.setHours(oneHourAgo.getHours() - 1)
-
   const timeDataWithinOneHour = await prisma.timeData.findMany({
     where: {
       time: {
-        gte: oneHourAgo
+        gte: new Date(new Date().getTime() - 60 * 60 * 1000)
       }
-    },
-    select: {
-      integerValue: true
     }
   })
 
-  if (timeDataWithinOneHour?.length > 0) {
-    const integerValues = timeDataWithinOneHour?.map(data => data.integerValue)
-
-    if (!integerValues) {
-      return ResponseJSON({ error: 'No integer values found' }, 404)
-    }
-
-    const average =
-      integerValues.reduce((sum, value) => sum + value, 0) /
-      integerValues.length
-
-    const percentile50 = CalculatePercentile(integerValues, 50)
-    const percentile90 = CalculatePercentile(integerValues, 90)
-    const percentile95 = CalculatePercentile(integerValues, 95)
-
-    return ResponseJSON(
-      {
-        average,
-        'Percentile 50th': percentile50,
-        'Percentile 90th': percentile90,
-        'Percentile 95th': percentile95
-      },
-      201
-    )
-  } else {
+  if (!timeDataWithinOneHour || timeDataWithinOneHour.length === 0) {
     return ResponseJSON({ error: 'No integer values found' }, 404)
   }
+
+  const integerValues = timeDataWithinOneHour.map(data => data.integerValue)
+
+  const average = CalculateAverage(integerValues)
+  const percentile50 = CalculatePercentile(integerValues, 50)
+  const percentile90 = CalculatePercentile(integerValues, 90)
+  const percentile95 = CalculatePercentile(integerValues, 95)
+
+  return ResponseJSON(
+    {
+      average,
+      'Percentile 50th': percentile50,
+      'Percentile 90th': percentile90,
+      'Percentile 95th': percentile95
+    },
+    201
+  )
 }
