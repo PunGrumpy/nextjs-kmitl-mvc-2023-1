@@ -14,7 +14,8 @@
     "prisma:studio": "prisma studio",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@types/react": "18.2.21",
