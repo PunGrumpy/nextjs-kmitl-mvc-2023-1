@@ -42,12 +42,11 @@ export default function Form() {
           }
         })(),
         {
-          loading: 'Loading...',
+          loading: 'Posting data...',
           success: <b>Data posted successfully!</b>,
           error: <b>Failed to post data</b>
         }
-      ),
-        await new Promise(resolve => setTimeout(resolve, 2000))
+      )
     } catch (error: any) {
       toast.error(error.toString())
     } finally {
@@ -59,11 +58,10 @@ export default function Form() {
   async function handleGet() {
     try {
       setLoading(true)
-      let responseJson: ApiResponse | null = null
       toast.promise(
         (async () => {
           const response = await fetch('/api/monix')
-          responseJson = await response.json()
+          const responseJson = await response.json()
 
           await new Promise(resolve => setTimeout(resolve, 2000))
 
@@ -74,12 +72,11 @@ export default function Form() {
           }
         })(),
         {
-          loading: 'Loading...',
+          loading: 'Getting data...',
           success: <b>Data fetched successfully!</b>,
           error: <b>Failed to fetch data or no data available</b>
         }
-      ),
-        await new Promise(resolve => setTimeout(resolve, 2000))
+      )
     } catch (error: any) {
       toast.error(error.toString())
     } finally {
