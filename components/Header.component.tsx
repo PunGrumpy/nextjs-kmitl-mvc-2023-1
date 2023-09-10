@@ -1,8 +1,14 @@
 import Link from 'next/link'
+import DropdownMenu from './DropdownMenu.component'
 
 export default function Header() {
+  const menuItems = [
+    { name: 'Home', href: '/' },
+    { name: 'API Documentation', href: '/api' }
+  ]
+
   return (
-    <header className="fixed w-full p-2 z-20 backdrop-blur-lg shadow-2xl bg-slate-50 bg-opacity-5">
+    <header className="fixed w-full p-2 z-20 backdrop-blur-lg shadow-2xl bg-zinc-50 bg-opacity-5">
       <div className="mx-auto max-w-3xl">
         <nav className="flex items-center justify-between text-base">
           <Link href="/" className="group">
@@ -11,20 +17,20 @@ export default function Header() {
             </h2>
           </Link>
           <div className="hidden md:flex gap-4 items-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1 hover:text-transparent coloring-text-hover"
-            >
-              <span className="font-medium text-lg tracking-wide">Home</span>
-            </Link>
-            <Link
-              href="/api"
-              className="inline-flex items-center gap-1 hover:text-transparent coloring-text-hover"
-            >
-              <span className="font-medium text-lg tracking-wide">
-                API Documentation
-              </span>
-            </Link>
+            {menuItems.map((menuItem, index) => (
+              <Link
+                key={index}
+                href={menuItem.href}
+                className="inline-flex items-center gap-1 hover:text-transparent coloring-text-hover"
+              >
+                <span className="font-medium text-lg tracking-wide">
+                  {menuItem.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="md:hidden">
+            <DropdownMenu menuItems={menuItems} />
           </div>
         </nav>
       </div>
