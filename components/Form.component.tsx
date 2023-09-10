@@ -1,6 +1,6 @@
 'use client'
 
-import { ApiResponse } from '@/model/types'
+import { ApiResponse } from '@/lib/types'
 import React, { useEffect, useState } from 'react'
 import toast, { ToastBar, Toaster } from 'react-hot-toast'
 

@@ -8,8 +8,8 @@
         <a href="https://www.prisma.io/"><img src="https://img.shields.io/badge/Prisma-000000?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma"></a>
         <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
         <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind CSS-000000?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"></a>
+        <a href="https://react-hot-toast.com/"><img src="https://img.shields.io/badge/React Hot Toast-000000?style=for-the-badge&logo=react-hot-toast&logoColor=white" alt="React Hot Toast"></a>
         <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"></a>
-        <a href="https://swagger.io/tools/swagger-ui/"><img src="https://img.shields.io/badge/Swagger UI-000000?style=for-the-badge&logo=swagger&logoColor=white" alt="Swagger UI"></a>
     </p>
 </div>
 
@@ -55,8 +55,8 @@ OOOOOOOOOOXOOOOOOXOXO
 - [Prisma](https://www.prisma.io/) - Database ORM
 - [TypeScript](https://www.typescriptlang.org/) - Programming Language
 - [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
+- [React Hot Toast](https://react-hot-toast.com/) - Toast
 - [PostgreSQL](https://www.postgresql.org/) - Database
-- [Swagger UI](https://swagger.io/tools/swagger-ui/) - API Documentation
 
 ## `🏢` Project Structure
 
@@ -72,13 +72,13 @@ OOOOOOOOOOXOOOOOOXOXO
 │   ├── 📄 layout.tsx
 │   └── 🖼️ favicon.ico
 ├── 📦 components
-│   └── 🖌️ swagger.component.tsx
+│   ├── 🖌️ Api.document.component.tsx
+│   ├── 🖌️ Form.component.tsx
+│   └── 🖌️ Header.component.tsx
 ├── 📚 lib
 │   ├── ⚙️ util.ts
 │   ├── ⚙️ http.ts
 │   ├── ⚙️ prisma.ts
-│   └── ⚙️ swagger.ts
-├── 📝 model
 │   └── 🌀 types.ts
 ├── 📦 prisma
 │   ├── 📂 migrations
@@ -90,7 +90,6 @@ OOOOOOOOOOXOOOOOOXOXO
 ├── 📖 README.md
 ├── 📦 package.json
 ├── ⚙️ tsconfig.json
-├── 📃 next-swagger-doc.json
 ├── ⚙️ next.config.js
 ├── 🖌️ tailwind.config.js
 ├── ⚖️ LICENSE
@@ -108,27 +107,25 @@ OOOOOOOOOOXOOOOOOXOXO
       - `POST` (function) - Create Time Data and Integer Data
     - `page.tsx` - API page (Swagger UI)
 - [components](component) - Web application components (Monix)
-  - `swagger.component.tsx` - Swagger UI component
+  - `Api.document.component.tsx` - API Documentation component
+  - `Form.component.tsx` - Form component
+  - `Header.component.tsx` - Header component
 - [lib](lib) - Library (Monix)
   - `util.ts` - Utility
     - `MakeSerializable` (function) - Make Serializable
     - `CalculatePercentile` (function) - Calculate Percentile
     - `CalculateAverage` (function) - Calculate Average
-    - `Fetcher` (Function) - Fetcher (HTTP)
   - `http.ts` - HTTP
     - `ResponseJSON` (function) - Response JSON
   - `prisma.ts` - Database ORM (Prisma)
     - `prisma` (object) - Prisma ORM
-  - `swagger.ts` - Swagger Docs
-    - `getApiDocs` (function) - Get API Docs
+  - `types.ts` - Types
+    - `ApiResponse` (interface) - API Response
 - [prisma](prisma) - Database ORM (Prisma)
   - `schema.prisma` - Database schema (Using PostgreSQL)
   - [migrations](prisma/migrations) - Database migration (Prisma)
     - `20230909063745_kmitl_mvc` (migration) - Database migration
   - `seed.ts` - Database seed (Prisma)
-- [model](model) - API model (Monix)
-  - `types.ts` - API model
-    - `ApiResponse` (interface) - API Response
 
 ## `📦` Installation
 
@@ -143,7 +140,7 @@ pnpm prisma:deploy
 prisma db seed --preview-feature
 
 # Run development server
-pnpm dev # but if you use pnpm dev:turbo Swagger UI will not work
+pnpm dev # but if you use pnpm dev:turbo (BE CAREFUL, IT'S ON BETA)
 ```
 
 ## `🚀` Deployment
