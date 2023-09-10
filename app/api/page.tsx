@@ -1,19 +1,13 @@
-import { getApiDocs } from '@/lib/swagger'
-import ReactSwagger from '@/components/Swagger.component'
+import ApiDocumentation from '@/components/Api.document.component'
+import Header from '@/components/Header.component'
 
-export default async function Page() {
-  const spec = await getApiDocs()
-
+export default function APIDocs() {
   return (
-    <div className="bg-[url('/images/wallpaper.png')] min-h-screen text-white">
-      <section>
-        <div className="container mx-auto py-16">
-          <header className="text-center">
-            <h1 className="text-4xl font-extrabold mb-8">API Documentation</h1>
-          </header>
-          <ReactSwagger spec={spec} />
-        </div>
-      </section>
+    <div>
+      <Header />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <ApiDocumentation />
+      </div>
     </div>
   )
 }

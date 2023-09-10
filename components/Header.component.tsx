@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import './Header.component.css'
 
 export default function Header() {
   return (
@@ -11,7 +10,13 @@ export default function Header() {
               Monix Simulator
             </h2>
           </Link>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex gap-4 items-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1 hover:text-transparent coloring-text-hover"
+            >
+              <span className="font-medium text-lg tracking-wide">Home</span>
+            </Link>
             <Link
               href="/api"
               className="inline-flex items-center gap-1 hover:text-transparent coloring-text-hover"

@@ -4,7 +4,7 @@ import { TimeData } from '@prisma/client'
 import { CalculateAverage, CalculatePercentile } from '@/lib/util'
 
 /**
- * @swagger
+ * @api {get} /api/monix Get the average, 50th, 90th, and 95th percentile of the last hour of data
  * /api/monix:
  *  get:
  *   description: Get the average, 50th, 90th, and 95th percentile of the last hour of data
@@ -43,7 +43,7 @@ export async function GET() {
 }
 
 /**
- * @swagger
+ * @api {post} /api/monix Post a new time and integer value
  * /api/monix:
  *  post:
  *    description: Post a new time and integer value
