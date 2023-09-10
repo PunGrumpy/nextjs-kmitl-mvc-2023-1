@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react'
 import { DatabaseTableProps } from '@/lib/types'
 import DatabaseTable from '@/components/Database.component'
-import toast, { ToastBar, Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import Header from '@/components/Header.component'
+import ToasterNotification from '@/components/Toaster.component'
 
 export default function Page() {
   const [data, setData] = useState<DatabaseTableProps[] | null>(null)
@@ -34,7 +35,7 @@ export default function Page() {
         })(),
         {
           loading: 'Getting data...',
-          success: <b>Data Fetch Successful!</b>,
+          success: <b>Data fetched successfully!</b>,
           error: <b>Failed to get data</b>
         }
       )
@@ -55,50 +56,7 @@ export default function Page() {
         ) : (
           <div className="fade-out"></div>
         )}
-        <Toaster
-          position="bottom-right"
-          key={Math.random()}
-          gutter={10}
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: '#363636',
-              color: '#fff'
-            },
-            success: {
-              style: {
-                background: '#435334',
-                color: '#CEDEBD'
-              }
-            },
-            error: {
-              style: {
-                background: '#E2C799',
-                color: '#9A3B3B'
-              }
-            },
-            loading: {
-              style: {
-                background: '#352F44',
-                color: '#B9B4C7'
-              }
-            }
-          }}
-        >
-          {t => (
-            <ToastBar toast={t}>
-              {({ icon, message }) => (
-                <>
-                  {icon}
-                  {message}
-                  {t.type !== 'loading' && (
-                    <button onClick={() => toast.dismiss(t.id)}>&times;</button>
-                  )}
-                </>
-              )}
-            </ToastBar>
-          )}
-        </Toaster>
+        <ToasterNotification />
       </div>
     </div>
   )
