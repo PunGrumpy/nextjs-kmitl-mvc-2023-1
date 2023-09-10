@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:deploy": "prisma generate && prisma migrate deploy",
+    "prisma:dev": "prisma generate && prisma migrate dev",
+    "prisma:reset": "prisma migrate reset --force && prisma generate",
     "prisma:studio": "prisma studio",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
