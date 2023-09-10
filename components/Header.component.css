@@ -2,7 +2,7 @@
   color: #f06;
   animation: color-change-animation 4s linear infinite alternate;
 }
-  
+
 .coloring-text-hover:hover {
   color: #f06;
   animation: color-change-animation 3s linear infinite alternate;
@@ -19,4 +19,3 @@
     color: #6f6;
   }
 }
-
