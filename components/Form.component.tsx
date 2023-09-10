@@ -86,7 +86,7 @@ export default function Form() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-gray-900 bg-opacity-70 backdrop-blur-lg p-8 rounded-lg shadow-lg w-96">
+      <div className="bg-zinc-900 bg-opacity-70 backdrop-blur-lg p-8 rounded-lg shadow-lg w-96">
         <form onSubmit={handleSubmit} className="text-white space-y-4">
           <div>
             <label className="block text-sm font-semibold">Time</label>
@@ -103,7 +103,7 @@ export default function Form() {
                 onChange={e =>
                   setFormData({ ...formData, time: e.target.value })
                 }
-                className="w-full rounded py-2 px-3 bg-gray-800 bg-opacity-60 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
+                className="w-full rounded py-2 px-3 bg-zinc-800 bg-opacity-60 text-white border border-zinc-600 focus:outline-none focus:border-blue-500"
                 required
                 disabled={loading}
               />
@@ -117,7 +117,7 @@ export default function Form() {
               onChange={e =>
                 setFormData({ ...formData, integerValue: e.target.value })
               }
-              className="w-full rounded py-2 px-3 bg-gray-800 bg-opacity-60 text-white border border-gray-600 focus:outline-none focus:border-blue-500"
+              className="w-full rounded py-2 px-3 bg-zinc-800 bg-opacity-60 text-white border border-zinc-600 focus:outline-none focus:border-blue-500"
               required
               disabled={loading}
             />
@@ -147,7 +147,7 @@ export default function Form() {
             <h3 className="mt-4 text-sm font-semibold text-white">
               Display on IoT Device
             </h3>
-            <div className="bg-gray-900 bg-opacity-60 p-4 rounded">
+            <div className="bg-zinc-900 bg-opacity-60 p-4 rounded">
               <p className="text-white">Average: {data.average}</p>
               <p className="text-white">Percentile 50th: {data.percentile50}</p>
               <p className="text-white">Percentile 90th: {data.percentile90}</p>
@@ -156,7 +156,7 @@ export default function Form() {
             <h3 className="mt-4 text-sm font-semibold text-white">
               Display on Smart Phone
             </h3>
-            <div className="bg-gray-900 bg-opacity-60 p-4 rounded">
+            <div className="bg-zinc-900 bg-opacity-60 p-4 rounded">
               <p className="text-white">{`I don't know what to display here`}</p>
             </div>
           </div>
