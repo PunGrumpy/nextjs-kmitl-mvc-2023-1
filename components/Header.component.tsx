@@ -4,6 +4,7 @@ import DropdownMenu from './DropdownMenu.component'
 export default function Header() {
   const menuItems = [
     { name: 'Home', href: '/' },
+    { name: 'Database', href: '/database' },
     { name: 'API Documentation', href: '/api' }
   ]
 
