@@ -1,6 +1,5 @@
 'use client'
 
-import './Form.component.css'
 import { ApiResponse } from '@/model/types'
 import React, { useEffect, useState } from 'react'
 import toast, { ToastBar, Toaster } from 'react-hot-toast'
@@ -18,34 +17,40 @@ export default function Form() {
     event.preventDefault()
     try {
       setLoading(true)
-      toast.loading('Loading...')
+      toast.promise(
+        (async () => {
+          const numberIntegerValue = Number(formData.integerValue)
+          const isoFormattedDate = new Date(formData.time).toISOString()
 
-      const numberIntegerValue = Number(formData.integerValue)
-      const isoFormattedDate = new Date(formData.time).toISOString()
+          const response = await fetch('/api/monix', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              time: isoFormattedDate,
+              integerValue: numberIntegerValue
+            })
+          })
 
-      const response = await fetch('/api/monix', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          time: isoFormattedDate,
-          integerValue: numberIntegerValue
-        })
-      })
-      if (response.status === 201) {
+          await new Promise(resolve => setTimeout(resolve, 2000))
+
+          if (response.status === 201) {
+            setFormData({ time: '', integerValue: '' })
+          } else {
+            throw new Error('Failed to post data')
+          }
+        })(),
+        {
+          loading: 'Loading...',
+          success: <b>Data posted successfully!</b>,
+          error: <b>Failed to post data</b>
+        }
+      ),
         await new Promise(resolve => setTimeout(resolve, 2000))
-        toast.dismiss()
-        toast.success('Data posted successfully!')
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setFormData({ time: '', integerValue: '' })
-      } else {
-        toast.error('Failed to post data')
-      }
     } catch (error: any) {
       toast.error(error.toString())
     } finally {
-      toast.dismiss()
       setLoading(false)
       handleGet()
     }
@@ -54,24 +59,30 @@ export default function Form() {
   async function handleGet() {
     try {
       setLoading(true)
-      toast.loading('Loading...')
+      let responseJson: ApiResponse | null = null
+      toast.promise(
+        (async () => {
+          const response = await fetch('/api/monix')
+          responseJson = await response.json()
 
-      const response = await fetch('/api/monix')
-      const responseJson = await response.json()
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      toast.dismiss()
-      if (response.status === 200) {
-        toast.success('Data fetched successfully!')
-      } else {
-        toast.error('Failed to fetch data or no data available')
-      }
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      toast.dismiss()
-      setData(responseJson)
+          await new Promise(resolve => setTimeout(resolve, 2000))
+
+          if (response.status === 200) {
+            setData(responseJson)
+          } else {
+            throw new Error('Failed to fetch data or no data available')
+          }
+        })(),
+        {
+          loading: 'Loading...',
+          success: <b>Data fetched successfully!</b>,
+          error: <b>Failed to fetch data or no data available</b>
+        }
+      ),
+        await new Promise(resolve => setTimeout(resolve, 2000))
     } catch (error: any) {
       toast.error(error.toString())
     } finally {
-      toast.dismiss()
       setLoading(false)
     }
   }
@@ -79,10 +90,7 @@ export default function Form() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-gray-900 bg-opacity-70 backdrop-blur-lg p-8 rounded-lg shadow-lg w-96">
-        <h1 className="text-3xl font-semibold transition duration-300 coloring-text">
-          Monix Simulator
-        </h1>
-        <form onSubmit={handleSubmit} className="text-white space-y-4 mt-8">
+        <form onSubmit={handleSubmit} className="text-white space-y-4">
           <div>
             <label className="block text-sm font-semibold">Time</label>
             <label
@@ -161,7 +169,8 @@ export default function Form() {
       </div>
 
       <Toaster
-        position="bottom-center"
+        position="bottom-right"
+        key={Math.random()}
         gutter={10}
         toastOptions={{
           duration: 3000,
