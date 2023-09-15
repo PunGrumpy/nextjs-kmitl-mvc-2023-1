@@ -14,7 +14,7 @@ echo "${ORANGE}
 ${RESET}"
 
 echo "${ORANGE}Running lint...${RESET}"
-pnpm lint
+bun run lint
 
 echo "${ORANGE}Running format...${RESET}"
-pnpm format
+bun run format

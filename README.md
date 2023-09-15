@@ -93,7 +93,7 @@ OOOOOOOOOOXOOOOOOXOXO
 ├── ⚙️ next.config.js
 ├── 🖌️ tailwind.config.js
 ├── ⚖️ LICENSE
-└── ⚙️ pnpm-lock.yaml
+└── ⚙️ bun.lockb
 ```
 
 - [app](app) - Web application (Monix)
@@ -131,16 +131,16 @@ OOOOOOOOOOXOOOOOOXOXO
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Run database migration
-pnpm prisma:deploy
+bun run prisma:deploy
 
 # Run database seed
 prisma db seed --preview-feature
 
 # Run development server
-pnpm dev # but if you use pnpm dev:turbo (BE CAREFUL, IT'S ON BETA)
+bun run dev # but if you use bun run dev:turbo (BE CAREFUL, IT'S ON BETA)
 ```
 
 ## `🚀` Deployment
