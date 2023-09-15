@@ -8,7 +8,6 @@
         <a href="https://www.prisma.io/"><img src="https://img.shields.io/badge/Prisma-000000?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma"></a>
         <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
         <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind CSS-000000?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"></a>
-        <a href="https://react-hot-toast.com/"><img src="https://img.shields.io/badge/React Hot Toast-000000?style=for-the-badge&logo=react-hot-toast&logoColor=white" alt="React Hot Toast"></a>
         <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"></a>
         <a href="https://www.bun.sh/"><img src="https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white" alt="Bun"></a>
     </p>
