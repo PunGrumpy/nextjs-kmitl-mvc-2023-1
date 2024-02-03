@@ -1,4 +1,10 @@
 <div align="center">
+    <h1>⚠️ Not Maintained</h1>
+</div>
+
+---
+
+<div align="center">
     <h1><code>🎓</code> KMITL MVC</h1>
     <p>Exit Examination for Computer Science</p>
     <img src="./.github/images/screenshot.png" alt="Screenshot" width="100%">
